@@ -13,8 +13,15 @@ export const Login = () => {
             profilePhoto: results.user.photoURL,
             isAuth: true,
         };
-        localStorage.setItem("auth", JSON.stringify(authInfo));
+        localStorage.setItem("auth", JSON.stringify(authInfo))
+        return <Navigate to="/kcal-tracker" />;
+        
     }
+    // if (isAuth) {
+    //     return <Navigate to="/expense-tracker" />;
+    //   }
+    
+    
   return (
     <div>
         <h1>LOGIN FIRST</h1>
