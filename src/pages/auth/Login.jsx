@@ -14,7 +14,7 @@ export const Login = () => {
             isAuth: true,
         };
         localStorage.setItem("auth", JSON.stringify(authInfo))
-        return <Navigate to="/kcal-tracker" />;
+        return <Navigate to="/tracker" />;
         
     }
     // if (isAuth) {
