@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useAddKcal } from "../../hooks/useAddKcal";
+import { useGetKcal } from "../../hooks/useGetKcal";
 const Tracker = () => {
   const { addKcal } = useAddKcal();
-
+  //getting value from getkcal hook,extracter from db
+  const {kcalDb} =useGetKcal()
   //states for inputs
   const  [foodName, setFoodName] = useState("");
   const [kcal, setKcal]  = useState();
@@ -25,8 +27,9 @@ const Tracker = () => {
     setProtein(0)
     setCarbs(0)
     setFibers(0)
-    setFat(0)
+    setFat(0) 
   };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
