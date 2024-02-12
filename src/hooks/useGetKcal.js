@@ -14,27 +14,30 @@ export const useGetKcal = () => {
   const { userID } = useGetUserInfo(); //user info
   const [kcalDb, setKcalDb] = useState([]);
   const getKcal = async () => {
+    let unsubscribe;
     try {
       const queryKcal = query(
         kcalCollectionRef,
-        where("userID", "=", userID),
+        where("userID", "==", userID),
         orderBy("createdAt")
       );
-      onSnapshot(queryKcal, (snapshot) => {
+      unsubscribe = onSnapshot(queryKcal, (snapshot) => {
         let docs = [];
         snapshot.forEach((doc) => {
           const data = doc.data();
           const id = doc.id;
           docs.push({ ...data, id });
+          console.log(kcalDb);
         });
         setKcalDb(docs);
-        console.log(kcalDb);
       });
     } catch (error) {
       console.log(error);
     }
+    return () => unsubscribe();
   };
   useEffect(() => {
     getKcal();
   }, []);
+  return { kcalDb };
 };
