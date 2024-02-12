@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAddKcal } from "../../hooks/useAddKcal";
 import { useGetKcal } from "../../hooks/useGetKcal";
+import FoodBox from "./FoodBox";
 const Tracker = () => {
   const { addKcal } = useAddKcal();
   //getting value from getkcal hook,extracter from db
@@ -29,7 +30,7 @@ const Tracker = () => {
     setFibers(0)
     setFat(0) 
   };
-
+console.log(kcalDb)
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -74,6 +75,14 @@ placeholder="ENTER CARBS"
         />
 
         <button type="submit">ADD</button>
+     <h1>
+       {kcalDb.map((element)=>{
+          const {  foodName,kcal, protein,carbs,fibers,fat} =element
+          return ( <FoodBox foodName={foodName} kcal={kcal} protein={protein} carbs={carbs} fibers={fibers} fat={fat}/>)
+
+       })}
+      </h1>
+        
       </form>
     </div>
   );
