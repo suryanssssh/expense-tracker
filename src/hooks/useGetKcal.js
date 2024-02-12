@@ -27,7 +27,7 @@ export const useGetKcal = () => {
           const data = doc.data();
           const id = doc.id;
           docs.push({ ...data, id });
-          console.log(kcalDb);
+          console.log(data.kcal);
         });
         setKcalDb(docs);
       });
