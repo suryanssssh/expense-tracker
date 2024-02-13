@@ -75,13 +75,9 @@ placeholder="ENTER CARBS"
         />
 
         <button type="submit">ADD</button>
-     <h1>
-       {kcalDb.map((element)=>{
-          const {  foodName,kcal, protein,carbs,fibers,fat} =element
-          return ( <FoodBox foodName={foodName} kcal={kcal} protein={protein} carbs={carbs} fibers={fibers} fat={fat}/>)
-
-       })}
-      </h1>
+     
+      <FoodBox kcalDb={kcalDb}/>
+     
         
       </form>
     </div>
