@@ -1,6 +1,7 @@
 import { auth, provider } from "../../config/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate, Navigate } from "react-router-dom";
+import Navbar from "../../components/NavBar";
 // import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 // import "./styles.css";
 
@@ -24,10 +25,9 @@ export const Login = () => {
     
   return (
     <div>
+      <Navbar/>
         <h1>LOGIN FIRST</h1>
-        <button onClick={signInWithGoogle}>LOGIN With Google</button>
-
-        
+        <button onClick={signInWithGoogle}>LOGIN With Google</button>        
     </div>
   )
 }

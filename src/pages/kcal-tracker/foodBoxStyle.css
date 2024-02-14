@@ -12,6 +12,8 @@
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
+    /* wrap: This property is used to break the flex item into multiples lines. It makes flex 
+    items wrap to multiple lines according to flex item width.  */
     margin-top: 100px;
 }
 
@@ -20,6 +22,8 @@
     background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
+    /* to prevent unwanted horizontal scrolling and extra whitespace in your project when 
+    elements exist outside the viewport. */
     box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
     margin:20px;
 }

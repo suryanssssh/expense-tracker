@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tracker from "./pages/kcal-tracker/Tracker";
 import Login from "./pages/auth/Login";
+import Navbar from "./components/NavBar";
 function App() {
   return (
     <div className="App">

@@ -3,8 +3,6 @@ import './foodBoxStyle.css'
 
 const FoodBox = ({kcalDb}) => {
   return (
-  
-
 <div className='card-container'>
         {kcalDb.map((element)=>{
         const {  foodName,kcal, protein,carbs,fibers,fat} =element

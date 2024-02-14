@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAddKcal } from "../../hooks/useAddKcal";
 import { useGetKcal } from "../../hooks/useGetKcal";
 import FoodBox from "./FoodBox";
+import NavBar from "../../components/NavBar";
 const Tracker = () => {
   const { addKcal } = useAddKcal();
   //getting value from getkcal hook,extracter from db
@@ -33,6 +34,8 @@ const Tracker = () => {
 console.log(kcalDb)
   return (
     <div>
+            <NavBar/>
+
       <form onSubmit={onSubmit}>
         {localStorage.getItem("auth")}
         <h1>ADD KCAL ;p</h1>
