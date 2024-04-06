@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useAddKcal } from "../../hooks/useAddKcal";
 import { useGetKcal } from "../../hooks/useGetKcal";
 import FoodBox from "./FoodBox";
 import NavBar from "../../components/NavBar";
 import SearchWithLiveResult from './SearchWithLiveResult';
+import { FoodContext } from "../../context/FoodContext";
 const Tracker = () => {
   const { addKcal } = useAddKcal();
   //getting value from getkcal hook,extracter from db
   const {kcalDb} =useGetKcal()
   //states for inputs
-  const  [foodName, setFoodName] = useState("");
-  const [kcal, setKcal]  = useState();
-  const [protein, setProtein]  = useState();
-  const  [carbs, setCarbs]  = useState();
-  const [fibers, setFibers]  = useState();
-  const  [fat, setFat]  = useState();
+  const {foodName,
+    setFoodName,
+    kcal,
+    setKcal,
+    protein,
+    setProtein,
+    carbs,
+    setCarbs,
+    fibers,
+    setFibers,
+    fat,
+    setFat}=useContext(FoodContext)
+
+
   const onSubmit = (e) => {
     e.preventDefault();
     addKcal({

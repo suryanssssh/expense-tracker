@@ -1,0 +1,12 @@
+/* whole box style  */
+.result-box h1{
+    font-weight: 500;
+}
+
+/* list style  */
+.result-list{
+    list-style-type: none;
+}
+.result-list:hover{
+    cursor: auto;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './SearchBar.css'
 const SearchBar = ({ data, onSearch }) => {
   const [query, setQuery] = useState('');
 
@@ -21,11 +21,11 @@ const SearchBar = ({ data, onSearch }) => {
 
 const LiveResultBar = ({ results }) => {
   return (
-    <div>
+    <div className='result-box'>
       <h2>Live Results:</h2>
       <ul>
         {results.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index} className='result-list'>{item}</li>
         ))}
       </ul>
     </div>
