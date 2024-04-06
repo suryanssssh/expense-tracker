@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './styles.css'
 const SearchBar = ({ data, onSearch }) => {
   const [query, setQuery] = useState('');
 
@@ -19,20 +19,24 @@ const SearchBar = ({ data, onSearch }) => {
   );
 };
 
-const LiveResultBar = ({ results }) => {
+const ResultBox = ({ results,resultFileHandler }) => {
   return (
-    <div>
-      <h2>Live Results:</h2>
-      <ul>
-        {results.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
+    <div className="result-box">
+    <h2>Live Results:</h2>
+    <ul>
+      {results.map((item, index) => {
+        const foodname=resultFileHandler(item)
+       return( 
+        <li className="result-item" key={index} onClick={foodname} >
+          {item}
+          </li>
+      )})}
+    </ul>
+  </div>
   );
 };
 
-const SearchWithLiveResult = ({ data }) => {
+const SearchWithResultBox = ({ data }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = (query) => {
@@ -44,11 +48,11 @@ const SearchWithLiveResult = ({ data }) => {
 
   return (
     <div>
-      <h1>Search with Live Result Bar</h1>
+      <h1>Search with Result Box</h1>
       <SearchBar data={data} onSearch={handleSearch} />
-      <LiveResultBar results={searchResults} />
+      <ResultBox results={searchResults} />
     </div>
   );
 };
 
-export default SearchWithLiveResult
+export default SearchWithResultBox;
