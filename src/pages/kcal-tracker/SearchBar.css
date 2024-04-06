@@ -1,6 +1,7 @@
 /* whole box style  */
 .result-box h1{
     font-weight: 500;
+    cursor: url('../../img/mouse-cursor-food.png'),auto;
 }
 
 /* list style  */
@@ -8,5 +9,5 @@
     list-style-type: none;
 }
 .result-list:hover{
-    cursor: auto;
+    
 }

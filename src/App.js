@@ -3,9 +3,50 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tracker from "./pages/kcal-tracker/Tracker";
 import Login from "./pages/auth/Login";
 import Navbar from "./components/NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FoodContext } from "./context/FoodContext";
+import { motion } from "framer-motion";
 function App() {
+  //custom mouse cursor
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [cursorVariant, setCursorVariant] = useState("default");
+
+  useEffect(() => {
+    const mouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+
+  const variants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+    },
+    text: {
+      height: 150,
+      width: 150,
+      x: mousePosition.x - 75,
+      y: mousePosition.y - 75,
+      backgroundColor: "yellow",
+      mixBlendMode: "difference",
+    },
+  };
+
+  const textEnter = () => setCursorVariant("text");
+  const textLeave = () => setCursorVariant("default");
+  //public states
   const [foodName, setFoodName] = useState("");
   const [kcal, setKcal] = useState();
   const [protein, setProtein] = useState();
@@ -36,6 +77,11 @@ function App() {
             <Route element={<Login />} path="/" />
           </Routes>
         </Router>
+        <motion.div
+          className="cursor"
+          variants={variants}
+          animate={cursorVariant}
+        />
       </FoodContext.Provider>
     </div>
   );
