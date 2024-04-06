@@ -34,14 +34,10 @@ const Tracker = () => {
   };
 console.log(kcalDb)
 const data = kcalDb.map((element)=>element.foodName)
-//this is for search result click
-const resultFileHandler=(food)=>{
-  setFoodName(food)
-}
   return (
     <div>
             <NavBar/>
-            <SearchWithLiveResult resultFileHandler={resultFileHandler} data={data} />
+            <SearchWithLiveResult data={data} />
       <form onSubmit={onSubmit}>
         {/* {localStorage.getItem("auth")} */}
         <h1>ADD Custom Food</h1>
@@ -85,7 +81,7 @@ placeholder="ENTER CARBS"
 
         <button type="submit">ADD</button>
      
-      <FoodBox kcalDb={kcalDb} />
+      <FoodBox kcalDb={kcalDb}/>
      
         
       </form>
