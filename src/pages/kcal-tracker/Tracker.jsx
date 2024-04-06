@@ -3,7 +3,6 @@ import { useAddKcal } from "../../hooks/useAddKcal";
 import { useGetKcal } from "../../hooks/useGetKcal";
 import FoodBox from "./FoodBox";
 import NavBar from "../../components/NavBar";
-import SearchWithLiveResult from './SearchWithLiveResult';
 const Tracker = () => {
   const { addKcal } = useAddKcal();
   //getting value from getkcal hook,extracter from db
@@ -33,14 +32,13 @@ const Tracker = () => {
     setFat(0) 
   };
 console.log(kcalDb)
-const data = kcalDb.map((element)=>element.foodName)
   return (
     <div>
             <NavBar/>
-            <SearchWithLiveResult data={data} />
+
       <form onSubmit={onSubmit}>
-        {/* {localStorage.getItem("auth")} */}
-        <h1>ADD Custom Food</h1>
+        {localStorage.getItem("auth")}
+        <h1>ADD KCAL ;p</h1>
         <input
         type="text"
           placeholder="ENTER FOOD NAME"

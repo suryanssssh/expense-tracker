@@ -6,7 +6,6 @@ import Navbar from "../../components/NavBar";
 // import "./styles.css";
 
 export const Login = () => {
-  const navigate = useNavigate();
     const signInWithGoogle=async()=>{
         const results = await signInWithPopup(auth, provider);
         const authInfo = {
@@ -16,7 +15,7 @@ export const Login = () => {
             isAuth: true,
         };
         localStorage.setItem("auth", JSON.stringify(authInfo))
-        navigate('/tracker')
+        return <Navigate to="/tracker" />;
         
     }
     // if (isAuth) {
