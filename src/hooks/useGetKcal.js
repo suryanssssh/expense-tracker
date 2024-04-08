@@ -27,6 +27,18 @@ export const useGetKcal = () => {
           const data = doc.data();
           const id = doc.id;
           docs.push({ ...data, id });
+          //  this function converts the timestamp time format from second to date
+          function convertTimestamp(timestamp) {
+            let date = timestamp.toDate();
+            let mm = date.getMonth();
+            let dd = date.getDate();
+            let yyyy = date.getFullYear();
+
+            date = mm + "/" + dd + "/" + yyyy;
+            console.log(date);
+            return date;
+          }
+          convertTimestamp(data.createdAt);
         });
         setKcalDb(docs);
       });
