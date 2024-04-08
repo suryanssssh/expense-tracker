@@ -42,7 +42,7 @@ const Tracker = () => {
     setFat(0) 
   };
 console.log(kcalDb)
-const data = kcalDb.map((element)=>element.foodName)
+const data = kcalDb.map((element)=>element)
   return (
     <div>
             <NavBar/>

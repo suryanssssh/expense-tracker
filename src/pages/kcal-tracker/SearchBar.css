@@ -9,5 +9,6 @@
     list-style-type: none;
 }
 .result-list:hover{
-    
+    color:red;
+    background-color: black;
 }

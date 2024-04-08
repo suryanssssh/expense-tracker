@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './SearchBar.css'
+import { useContext } from 'react';
+import { FoodContext } from "../../context/FoodContext";
+
 const SearchBar = ({ data, onSearch }) => {
   const [query, setQuery] = useState('');
 
@@ -19,13 +22,37 @@ const SearchBar = ({ data, onSearch }) => {
   );
 };
 
+
 const LiveResultBar = ({ results }) => {
-  return (
-    <div className='result-box'>
+  //use context for autofill function 
+  const {foodName,
+    setFoodName,
+    kcal,
+    setKcal,
+    protein,
+    setProtein,
+    carbs,
+    setCarbs,
+    fibers,
+    setFibers,
+    fat,
+    setFat}=useContext(FoodContext)
+    //this function is to update the state of add button 
+    const AutoFillHandler=(item)=>{
+
+     setFoodName(item.foodName)
+     setKcal(item.kcal)
+     setProtein(item.protein)
+     setCarbs(item.carbs)
+     setFibers(item.fibers)
+     setFat(item.fat)
+    }
+    return (
+      <div className='result-box'>
       <h2>Live Results:</h2>
       <ul>
         {results.map((item, index) => (
-          <li key={index} className='result-list'>{item}</li>
+          <li key={index} className='result-list' onClick={()=>AutoFillHandler(item)}>{item.foodName}</li>
         ))}
       </ul>
     </div>
@@ -34,10 +61,10 @@ const LiveResultBar = ({ results }) => {
 
 const SearchWithLiveResult = ({ data }) => {
   const [searchResults, setSearchResults] = useState([]);
-
+ 
   const handleSearch = (query) => {
     const filteredResults = data.filter(item =>
-      item.toLowerCase().includes(query.toLowerCase())
+      item.foodName.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filteredResults);
   };
