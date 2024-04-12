@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './foodBoxStyle.css'
+import FoodImage from './FoodImage';
 
 const FoodBox = ({ kcalDb }) => {
   let totalProtein = 0;
@@ -28,7 +29,8 @@ const FoodBox = ({ kcalDb }) => {
             console.log(`this is the total kcal of today: ${totalkcal}`)
             return (
               <div className='card'>
-                <img src='https://lh3.googleusercontent.com/a/ACg8ocKotQBTCRIQPRY8O2np_z9rc-pYj1ha7Uea8rWxFlZ2Kmk=s96-c' />
+                {/* <FoodImage foodName={foodName} /> */}
+                {/* <img src='https://lh3.googleusercontent.com/a/ACg8ocKotQBTCRIQPRY8O2np_z9rc-pYj1ha7Uea8rWxFlZ2Kmk=s96-c' /> */}
                 <div className="card-content">
                   <h3>{foodName}</h3>
                   <p>KCAL : {kcal}</p>
