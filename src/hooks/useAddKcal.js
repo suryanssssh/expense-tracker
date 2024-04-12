@@ -5,6 +5,7 @@ export const useAddKcal = () => {
   const kcalCollectionRefercence = collection(db, "kcal");
   const { userID } = useGetUserInfo();
   const addKcal = async ({ foodName, kcal, protein, carbs, fibers, fat }) => {
+    let date = new Date().toLocaleDateString();
     await addDoc(kcalCollectionRefercence, {
       foodName,
       carbs,
@@ -13,6 +14,7 @@ export const useAddKcal = () => {
       fibers,
       protein,
       kcal,
+      kcalDate: date,
       userID,
     });
   };

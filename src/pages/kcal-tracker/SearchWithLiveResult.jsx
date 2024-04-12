@@ -46,6 +46,7 @@ const LiveResultBar = ({ results }) => {
      setCarbs(item.carbs)
      setFibers(item.fibers)
      setFat(item.fat)
+     console.log(item.kcalDate)
     }
     return (
       <div className='result-box'>
@@ -61,16 +62,23 @@ const LiveResultBar = ({ results }) => {
 
 const SearchWithLiveResult = ({ data }) => {
   const [searchResults, setSearchResults] = useState([]);
- 
+    //filtering accounding to input 
   const handleSearch = (query) => {
     const filteredResults = data.filter(item =>
       item.foodName.toLowerCase().includes(query.toLowerCase())
     );
-    setSearchResults(filteredResults);
+
+    //for removing duplicates by foodName
+    const ids = filteredResults.map(({ foodName }) => foodName);
+    const noDuplicateResults = filteredResults.filter(({ foodName }, index) =>
+    !ids.includes(foodName, index + 1));
+    
+    setSearchResults(noDuplicateResults);
   };
 
   return (
     <div>
+      
       <h1>Search with Live Result Bar</h1>
       <SearchBar data={data} onSearch={handleSearch} />
       <LiveResultBar results={searchResults} />
