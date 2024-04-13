@@ -69,9 +69,17 @@ const LiveResultBar = ({ results }) => {
 
 const SearchWithLiveResult = ({ data }) => {
   const [searchResults, setSearchResults] = useState([]);
-  //filtering accounding to input 
   const handleSearch = (query) => {
-    const filteredResults = data.filter(item =>
+    //filtering to only one quanity inputs 
+    const oneQuantityResults = data.filter(item => {
+      if (Number(item.quantity) == 1) {
+        return (item)
+      }
+    }
+    );
+
+    //filtering accounding to input 
+    const filteredResults = oneQuantityResults.filter(item =>
       item.foodName.toLowerCase().includes(query.toLowerCase())
     );
 

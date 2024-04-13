@@ -36,6 +36,8 @@ const FoodBox = ({ kcalDb }) => {
                   <p>KCAL : {kcal}</p>
                   <p>Protein : {protein}</p>
                   <p>Carbohydrates : {carbs}</p>
+                  <p>Quantity : {quantity}</p>
+
                 </div>
               </div>
             )

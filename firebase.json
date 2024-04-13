@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "my-kcal-tracker",
+    "site": "kcal-tracker-879da",
     "public": "build",
     "ignore": [
       "firebase.json",

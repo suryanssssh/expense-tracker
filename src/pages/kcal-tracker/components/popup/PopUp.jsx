@@ -27,15 +27,15 @@ export default function Popup({ item }) {
     //this function is to update the state of add button 
     const AutoFillHandler = (e) => {
         e.preventDefault()
-        setFoodName(item.foodName * quantity)
+        setFoodName(item.foodName)
         setKcal(item.kcal * quantity)
         setProtein(item.protein * quantity)
         setCarbs(item.carbs * quantity)
         setFibers(item.fibers * quantity)
         setFat(item.fat * quantity)
         setQuantity(quantity)
-        console.log(item.kcalDate)
 
+        console.log(item.kcalDate)
 
     }
 
@@ -46,7 +46,7 @@ export default function Popup({ item }) {
 
                 <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                     <div className='details'>
-                        <h3>The nutrition value of {foodName} ( per quantity : {item.quantity} ) is</h3>
+                        <h3>The nutrition value of {foodName} ( per quantity : {item.quantity}) is</h3>
                         <p>kcal:{kcal}</p>
                         <p>protein:{protein}</p>
                         <p>carbs:{carbs}</p>
