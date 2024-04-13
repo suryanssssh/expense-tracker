@@ -6,6 +6,7 @@ import Navbar from "./components/NavBar";
 import { useState, useEffect } from "react";
 import { FoodContext } from "./context/FoodContext";
 import { motion } from "framer-motion";
+import Popup from "./pages/kcal-tracker/components/popup/PopUp";
 function App() {
   //custom mouse cursor
   const [mousePosition, setMousePosition] = useState({
@@ -75,6 +76,7 @@ function App() {
           <Routes>
             <Route exact element={<Tracker />} path="/tracker" />
             <Route element={<Login />} path="/" />
+            <Route element={<Popup />} path="/modal" />
           </Routes>
         </Router>
         <motion.div

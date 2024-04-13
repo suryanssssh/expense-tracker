@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SearchBar.css'
 import { useContext } from 'react';
 import { FoodContext } from "../../context/FoodContext";
-
+import Popup from './components/popup/PopUp';
 const SearchBar = ({ data, onSearch }) => {
   const [query, setQuery] = useState('');
 
@@ -25,7 +25,7 @@ const SearchBar = ({ data, onSearch }) => {
 
 const LiveResultBar = ({ results }) => {
   //use context for autofill function 
-  const {foodName,
+  const { foodName,
     setFoodName,
     kcal,
     setKcal,
@@ -36,24 +36,27 @@ const LiveResultBar = ({ results }) => {
     fibers,
     setFibers,
     fat,
-    setFat}=useContext(FoodContext)
-    //this function is to update the state of add button 
-    const AutoFillHandler=(item)=>{
+    setFat } = useContext(FoodContext)
+  //this function is to update the state of add button 
+  const AutoFillHandler = (item) => {
 
-     setFoodName(item.foodName)
-     setKcal(item.kcal)
-     setProtein(item.protein)
-     setCarbs(item.carbs)
-     setFibers(item.fibers)
-     setFat(item.fat)
-     console.log(item.kcalDate)
-    }
-    return (
-      <div className='result-box'>
+    //  setFoodName(item.foodName)
+    //  setKcal(item.kcal)
+    //  setProtein(item.protein)
+    //  setCarbs(item.carbs)
+    //  setFibers(item.fibers)
+    //  setFat(item.fat)
+    //  console.log(item.kcalDate)
+
+
+  }
+  return (
+    <div className='result-box'>
       <h2>Live Results:</h2>
       <ul>
         {results.map((item, index) => (
-          <li key={index} className='result-list' onClick={()=>AutoFillHandler(item)}>{item.foodName}</li>
+          <li key={index} className='result-list' onClick={() => AutoFillHandler(item)}>   <Popup item={item} />
+          </li>
         ))}
       </ul>
     </div>
@@ -62,7 +65,7 @@ const LiveResultBar = ({ results }) => {
 
 const SearchWithLiveResult = ({ data }) => {
   const [searchResults, setSearchResults] = useState([]);
-    //filtering accounding to input 
+  //filtering accounding to input 
   const handleSearch = (query) => {
     const filteredResults = data.filter(item =>
       item.foodName.toLowerCase().includes(query.toLowerCase())
@@ -71,14 +74,14 @@ const SearchWithLiveResult = ({ data }) => {
     //for removing duplicates by foodName
     const ids = filteredResults.map(({ foodName }) => foodName);
     const noDuplicateResults = filteredResults.filter(({ foodName }, index) =>
-    !ids.includes(foodName, index + 1));
-    
+      !ids.includes(foodName, index + 1));
+
     setSearchResults(noDuplicateResults);
   };
 
   return (
     <div>
-      
+
       <h1>Search with Live Result Bar</h1>
       <SearchBar data={data} onSearch={handleSearch} />
       <LiveResultBar results={searchResults} />

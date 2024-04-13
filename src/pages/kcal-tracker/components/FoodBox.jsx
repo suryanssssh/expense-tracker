@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './foodBoxStyle.css'
-import FoodImage from './FoodImage';
+// import FoodImage from './FoodImage';
 
 const FoodBox = ({ kcalDb }) => {
   let totalProtein = 0;
