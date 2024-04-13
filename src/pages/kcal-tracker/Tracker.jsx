@@ -21,7 +21,10 @@ const Tracker = () => {
     fibers,
     setFibers,
     fat,
-    setFat } = useContext(FoodContext)
+    setFat,
+    quantity,
+    setQuantity
+  } = useContext(FoodContext)
 
 
   const onSubmit = (e) => {
@@ -32,7 +35,8 @@ const Tracker = () => {
       protein,
       carbs,
       fibers,
-      fat
+      fat,
+      quantity
     });
     setFoodName('')
     setKcal(0)
@@ -40,29 +44,10 @@ const Tracker = () => {
     setCarbs(0)
     setFibers(0)
     setFat(0)
+    setQuantity(1)
   };
   console.log(kcalDb)
   const data = kcalDb.map((element) => element)
-
-  //this is to filter data according to date
-  // const date = new Date();
-
-  // let day = date.getDate();
-  // let month = date.getMonth() + 1;
-  // let year = date.getFullYear();
-  // // This arrangement can be altered based on how we want the date's format to appear.
-  // let currentDate = `${month}/${day}/${year}`;
-
-  // const [todayKcal,setTodaykcal]=useState([])
-
-  //     // const {  foodName,kcal, protein,carbs,fibers,fat,kcalDate} =element;
-  //    const todayResult= kcalDb.filter(item =>
-  //       item.data.includes(date)
-  //     );
-  //     setTodaykcal(todayResult)
-  //     console.log('this is today kcals')
-  //     console.log(todayKcal)
-
 
   return (
     <div>
@@ -107,6 +92,12 @@ const Tracker = () => {
           placeholder="ENTER FAT"
           value={fat}
           onChange={(e) => setFat(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="ENTER QUANTITY"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
         />
 
         <button type="submit">ADD</button>

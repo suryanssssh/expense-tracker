@@ -4,7 +4,15 @@ import { useGetUserInfo } from "./useGetUserInfo";
 export const useAddKcal = () => {
   const kcalCollectionRefercence = collection(db, "kcal");
   const { userID } = useGetUserInfo();
-  const addKcal = async ({ foodName, kcal, protein, carbs, fibers, fat }) => {
+  const addKcal = async ({
+    foodName,
+    kcal,
+    protein,
+    carbs,
+    fibers,
+    fat,
+    quantity,
+  }) => {
     let date = new Date().toLocaleDateString();
     await addDoc(kcalCollectionRefercence, {
       foodName,
@@ -15,6 +23,7 @@ export const useAddKcal = () => {
       protein,
       kcal,
       kcalDate: date,
+      quantity,
       userID,
     });
   };

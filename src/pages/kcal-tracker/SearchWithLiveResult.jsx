@@ -36,26 +36,30 @@ const LiveResultBar = ({ results }) => {
     fibers,
     setFibers,
     fat,
-    setFat } = useContext(FoodContext)
-  //this function is to update the state of add button 
-  const AutoFillHandler = (item) => {
+    setFat,
+    quantity,
+    setQuantity
 
-    //  setFoodName(item.foodName)
-    //  setKcal(item.kcal)
-    //  setProtein(item.protein)
-    //  setCarbs(item.carbs)
-    //  setFibers(item.fibers)
-    //  setFat(item.fat)
-    //  console.log(item.kcalDate)
+  } = useContext(FoodContext)
+  // //this function is to update the state of add button 
+  // const AutoFillHandler = (item) => {
+
+  //   setFoodName(item.foodName)
+  //   setKcal(item.kcal)
+  //   setProtein(item.protein)
+  //   setCarbs(item.carbs)
+  //   setFibers(item.fibers)
+  //   setFat(item.fat)
+  //   console.log(item.kcalDate)
 
 
-  }
+  // }
   return (
     <div className='result-box'>
       <h2>Live Results:</h2>
       <ul>
         {results.map((item, index) => (
-          <li key={index} className='result-list' onClick={() => AutoFillHandler(item)}>   <Popup item={item} />
+          <li key={index} className='result-list' >   <Popup item={item} />
           </li>
         ))}
       </ul>

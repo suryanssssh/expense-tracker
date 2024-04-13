@@ -54,6 +54,7 @@ function App() {
   const [carbs, setCarbs] = useState();
   const [fibers, setFibers] = useState();
   const [fat, setFat] = useState();
+  const [quantity, setQuantity] = useState(1);
   return (
     <div className="App">
       <FoodContext.Provider
@@ -70,6 +71,8 @@ function App() {
           setFibers,
           fat,
           setFat,
+          quantity,
+          setQuantity,
         }}
       >
         <Router>

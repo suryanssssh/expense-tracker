@@ -11,7 +11,7 @@ const FoodBox = ({ kcalDb }) => {
     <div className='card-container'>
       {
         kcalDb.map((element) => {
-          const { foodName, kcal, protein, carbs, fibers, fat, kcalDate } = element
+          const { foodName, kcal, protein, carbs, fibers, fat, kcalDate, quantity } = element
 
           const date = new Date();
 
