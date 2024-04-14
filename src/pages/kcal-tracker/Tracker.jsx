@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useAddKcal } from "../../hooks/useAddKcal";
 import { useGetKcal } from "../../hooks/useGetKcal";
 import FoodBox from "./components/FoodBox";
@@ -23,12 +23,14 @@ const Tracker = () => {
     fat,
     setFat,
     quantity,
-    setQuantity
+    setQuantity,
+    currentDate,
+    setCurrentDate
   } = useContext(FoodContext)
 
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     addKcal({
       foodName,
       kcal,
@@ -53,7 +55,7 @@ const Tracker = () => {
     <div>
       <NavBar />
       <SearchWithLiveResult data={data} />
-      <form onSubmit={onSubmit}>
+      <form >
         {/* {localStorage.getItem("auth")} */}
         <h1>ADD Custom Food</h1>
         <input
@@ -100,10 +102,13 @@ const Tracker = () => {
           onChange={(e) => setQuantity(e.target.value)}
         />
 
-        <button type="submit">ADD</button>
-
+        <button type="submit" onClick={(e) => onSubmit(e)}>ADD</button>
+        {/* {
+          useEffect(() => { */}
         <FoodBox kcalDb={kcalDb} />
+        {/* }, [currentDate])
 
+        } */}
       </form>
 
     </div>

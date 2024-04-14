@@ -55,6 +55,7 @@ function App() {
   const [fibers, setFibers] = useState();
   const [fat, setFat] = useState();
   const [quantity, setQuantity] = useState(1);
+  const [currentDate, setCurrentDate] = useState("");
   return (
     <div className="App">
       <FoodContext.Provider
@@ -73,6 +74,8 @@ function App() {
           setFat,
           quantity,
           setQuantity,
+          currentDate,
+          setCurrentDate,
         }}
       >
         <Router>

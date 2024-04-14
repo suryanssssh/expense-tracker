@@ -46,3 +46,29 @@
  }
 
  
+
+ /* css for bottom page changing  buttons */
+ .button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    height: 60px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #264628;
+    cursor: none;
+}
+button :hover{
+    cursor: none;
+}
