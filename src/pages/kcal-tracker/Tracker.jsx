@@ -53,7 +53,7 @@ const Tracker = () => {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <SearchWithLiveResult data={data} />
       <form >
         {/* {localStorage.getItem("auth")} */}
