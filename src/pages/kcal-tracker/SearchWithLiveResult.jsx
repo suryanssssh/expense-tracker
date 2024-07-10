@@ -24,8 +24,8 @@ const SearchBar = ({ data, onSearch }) => {
 
 
 const LiveResultBar = ({ results }) => {
-  //use context for autofill function 
-  const { foodName,
+  const {
+    foodName,
     setFoodName,
     kcal,
     setKcal,
@@ -39,27 +39,15 @@ const LiveResultBar = ({ results }) => {
     setFat,
     quantity,
     setQuantity
+  } = useContext(FoodContext);
 
-  } = useContext(FoodContext)
-  // //this function is to update the state of add button 
-  // const AutoFillHandler = (item) => {
-
-  //   setFoodName(item.foodName)
-  //   setKcal(item.kcal)
-  //   setProtein(item.protein)
-  //   setCarbs(item.carbs)
-  //   setFibers(item.fibers)
-  //   setFat(item.fat)
-  //   console.log(item.kcalDate)
-
-
-  // }
   return (
     <div className='result-box'>
       <h2>Live Results:</h2>
-      <ul>
+      <ul className='result-list-container'>
         {results.map((item, index) => (
-          <li key={index} className='result-list' >   <Popup item={item} />
+          <li key={index} className='result-list'>
+            <Popup item={item} />
           </li>
         ))}
       </ul>

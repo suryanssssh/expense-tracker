@@ -7,6 +7,7 @@ const FoodBox = ({ kcalDb }) => {
   let totalProtein = 0;
   let totalkcal = 0;
   let totalCarbs = 0;
+  let totalFats=0;
   let totalFibers = 0;
 
   const { currentDate, setCurrentDate } = useContext(FoodContext);
@@ -36,11 +37,12 @@ const FoodBox = ({ kcalDb }) => {
     return kcalDb
       .filter(element => element.kcalDate === currentDate)
       .map((element, index) => {
-        const { foodName, kcal, protein, carbs, fibers, quantity } = element;
+        const { foodName, kcal, protein, carbs, fibers, quantity,fat } = element;
 
         totalkcal += Number(kcal);
         totalProtein += Number(protein);
         totalCarbs += Number(carbs);
+        totalFats+=Number(fat)
         totalFibers += Number(fibers);
 
         return (
@@ -51,6 +53,7 @@ const FoodBox = ({ kcalDb }) => {
               <p>KCAL : {kcal}</p>
               <p>Protein : {protein}</p>
               <p>Carbohydrates : {carbs}</p>
+              <p>Fat : {fat}</p>
               <p>Quantity : {quantity}</p>
             </div>
           </div>
@@ -79,10 +82,12 @@ const FoodBox = ({ kcalDb }) => {
         {getCards()}
       </div>
       <div>
-        <h1>Total Kcal of today: {totalkcal}</h1>
-        <h1>Total Protein of today: {totalProtein}</h1>
-        <h1>Total Carbs today: {totalCarbs}</h1>
-        <h1>Total Fibers today: {totalFibers}</h1>
+        <h1>Date : {currentDate}</h1>
+        <h2>Total Kcal of today: {totalkcal}</h2>
+        <h2>Total Protein of today: {totalProtein}</h2>
+        <h2>Total Carbs today: {totalCarbs}</h2>
+        <h2>Total Fat Today: {totalFats}</h2>
+        <h2>Total Fibers today: {totalFibers}</h2>
       </div>
       <div className="scroll-wrapper">
         <button className="scroll-button" onClick={(e)=>scrollLeft(e)}>{"<"}</button>

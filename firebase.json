@@ -1,11 +1,16 @@
 {
   "hosting": {
-    "site": "kcal-tracker-879da",
     "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
